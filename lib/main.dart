@@ -1,11 +1,5 @@
-
-
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 
 import 'src/basics/01_animated_container.dart';
 import 'src/basics/02_page_route_builder.dart';
@@ -26,6 +20,7 @@ import 'src/misc/focus_image.dart';
 import 'src/misc/hero_animation.dart';
 import 'src/misc/physics_card_drag.dart';
 import 'src/misc/repeating_animation.dart';
+
 
 void main() {
   
@@ -159,6 +154,7 @@ class AnimationSamples extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Animation Samples',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
@@ -175,14 +171,21 @@ class HomePage extends StatelessWidget {
     final headerStyle = Theme.of(context).textTheme.titleLarge;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Samples'),
+        title: const Text('Flutter Ejemplos'),
       ),
       body: ListView(
         children: [
-          ListTile(title: Text('Basics', style: headerStyle)),
+          ListTile(title: Text('Básico', style: headerStyle)),
           ...basicDemos.map((d) => DemoTile(demo: d)),
-          ListTile(title: Text('Misc', style: headerStyle)),
+          ListTile(title: Text('Varios', style: headerStyle)),
           ...miscDemos.map((d) => DemoTile(demo: d)),
+          ListTile(title: Text('Información', style: headerStyle)),
+          // ignore: prefer_const_constructors
+          ListTile(title: Text('Descargar código'), onTap: () {}),
+          // ignore: prefer_const_constructors
+          ListTile(title: Text('Cómo instalar flutter'), onTap: () {}),
+          // ignore: prefer_const_constructors
+          ListTile(title: Text('Cómo ejecutar la App en PC'), onTap: () {}),
         ],
       ),
     );
